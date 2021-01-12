@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memo - 글작성</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <h2>● 게시글 작성</h2>
+    <% if(typeof errs !== 'undefined') { %>
+    <% errs.forEach((err) =>{ %>
+    <h4 style="color: red;"><%=err.param%> : <%=err.msg%></h4>
+    <% }) %>
+    <% } %>
+
+    <form method="POST" action="/store">
+        <textarea name="content"></textarea>
+        <p style="font-size: 12px;">※ 작성 후 저장 버튼을 눌러주세요</p>
+        <input type="submit" value="저장" />
+        <input type="button" value="이전" onclick="javascript:location.href='/'" />
+    </form>
+</body>
+
+</html>
